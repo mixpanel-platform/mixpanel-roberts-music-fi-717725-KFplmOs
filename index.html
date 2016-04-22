@@ -7,9 +7,86 @@
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
   </head>
   <body class="mixpanel-platform-body">
-    <h1>Hello, World!</h1>
+    <!--<h1>Hello, World!</h1>-->
     <script>
-      // Run queries and display results here
+    
+    MP.api.people({
+      where: 'properties["$email"] == "robert@mixpanel.com"'
+    }).done(function(results) {
+      // console.log(results.values().results[0])
+      var record = results.values().results[0];
+      var distinct_id = record.$distinct_id
+    });
+    
+    console.log(mp.engage.widgets)
+    // MP.api.jql({
+    //   from_date: "2016-04-20",
+    //   to_date: "2016-04-20",
+    //   distinct_ids: ["salesforce"]
+    // }).done(function(results) {
+    //   console.log(results)
+    // });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      // function getParameterByName(name, url) {
+      //     if (!url) url = window.location.href;
+      //     name = name.replace(/[\[\]]/g, "\\$&");
+      //     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      //             results = regex.exec(url);
+      //     if (!results) return null;
+      //     if (!results[2]) return '';
+      //     return decodeURIComponent(results[2]);
+      //   }
+
+      //   _.namespace("mp.report.globals", function() {
+      //       return {
+      //           utc_offset: -480
+      //       }
+      //   }); 
+      // var email = getParameterByName("email");
+
+      // var user = MP.api.people({
+      //     "where": 'properties["$email"] == "' + email + '"'
+      // }).done(function(results) {
+      //     var results = results.values();
+      //     console.log(results)
+      //     if (_.isEmpty(results.results)) {
+      //         $("body").html('<h1 style="text-align: center; padding: 30px 0; font-size: 36px;">No user record found.</h1>');
+      //     } else {
+      //         var record = results.results[0];
+
+              // var property_list = new mp.engage.widgets.PropertyList().create(
+              //     $(".user_properties table"),
+              //     {
+              //         editable: false,
+              //         initial_values: record.$properties
+              //     }
+              // );
+
+              // var user_stream = new mp.engage.widgets.UserStream().create($(".stream_container"));
+              // user_stream.set_distinct_ids([record.$distinct_id]);
+      //     }
+      // });
+      
+      // console.log(user)
     </script>
   </body>
 </html>
